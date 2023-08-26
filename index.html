@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Focus Timer</title>
+    <link rel="stylesheet" href="./style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <script defer src="./src/main.js" type="module"></script>
+  </head>
+  <body>
+    <div id="app">
+      <section id="timer">
+        <div id="time">
+          <span id="minutes">20</span>
+          <span>:</span>
+          <span id="seconds">00</span>
+        </div>
+        <div id="controls">
+          <button class="ph ph-play-circle" data-action="toggleRunning">
+            <span class="sr-only">começar</span>
+          </button>
+          <button class="ph ph-stop-circle" data-action="toggleRunning">
+            <span class="sr-only">parar</span>
+          </button>
+          <button class="ph ph-plus-circle" data-action="moreFiveMinutes">
+            <span class="sr-only">mais 5 minutos</span>
+          </button>
+          <button class="ph ph-minus-circle" data-action="minusFiveMinutes">
+            <span class="sr-only">menos 5 minutos</span>
+          </button>
+        </div>
+      </section>
+      <section id="sounds">
+        <button id="tree" class="ph ph-tree" data-sound="togglePlay">
+          <span class="sr-only">som de floresta</span>
+        </button>
+        <button
+          id="cloundRain"
+          class="ph ph-cloud-rain"
+          data-sound="togglePlay"
+        >
+          <span class="sr-only">som de chuva</span>
+        </button>
+        <button
+          id="storeFront"
+          class="ph ph-storefront"
+          data-sound="togglePlay"
+        >
+          <span class="sr-only">som de cafeteria</span>
+        </button>
+        <button id="flame" class="ph ph-flame" data-sound="togglePlay">
+          <span class="sr-only">som de lareira</span>
+        </button>
+      </section>
+    </div>
+  </body>
+</html>
