@@ -1,7 +1,6 @@
 import state from "./state.js";
 import * as timer from "./timer.js";
 import * as sounds from "./sounds.js";
-import { btnSounds } from "./elements.js";
 
 export const toggleRunning = () => {
   state.isRunning = !state.isRunning;
@@ -34,35 +33,25 @@ export const minusFiveMinutes = () => {
   timer.updateDisplay();
 };
 
-export const togglePlay = () => {
+export const toggleMusic = () => {
   state.isMute = !state.isMute;
+  let btnSound = event.target.id;
 
-  let btnSoundClass = event.target;
-  let id = btnSoundClass.id;
+  if (state.isMute == true) {
+    sounds.tree.pause();
+    sounds.flame.pause();
+    sounds.cloudRain.pause();
+    sounds.storeFront.pause();
+    return;
+  }
 
-  if (id == "tree") {
-    if (state.isMute == false) {
-      sounds.tree.play();
-    } else {
-      sounds.tree.pause();
-    }
-  } else if (id == "cloundRain") {
-    if (state.isMute == false) {
-      sounds.cloundRain.play();
-    } else {
-      sounds.cloundRain.pause();
-    }
-  } else if (id == "storeFront") {
-    if (state.isMute == false) {
-      sounds.storeFront.play();
-    } else {
-      sounds.storeFront.pause();
-    }
-  } else if (id == "flame") {
-    if (state.isMute == false) {
-      sounds.flame.play();
-    } else {
-      sounds.flame.pause();
-    }
+  if (btnSound == "tree") {
+    sounds.tree.play();
+  } else if (btnSound == "cloudRain") {
+    sounds.cloudRain.play();
+  } else if (btnSound == "storeFront") {
+    sounds.storeFront.play();
+  } else if (btnSound == "flame") {
+    sounds.flame.play();
   }
 };

@@ -1,5 +1,4 @@
-import { controls } from "./elements.js";
-import { sounds } from "./elements.js";
+import { controls, sounds } from "./elements.js";
 import * as actions from "./actions.js";
 
 export const registerControls = () => {
