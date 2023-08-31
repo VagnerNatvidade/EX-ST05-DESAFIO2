@@ -37,21 +37,23 @@ export const toggleMusic = () => {
   state.isMute = !state.isMute;
   let btnSound = event.target.id;
 
-  if (state.isMute == true) {
+  if (state.isMute == false) {
+    if (btnSound == "tree") {
+      sounds.tree.play();
+    } else if (btnSound == "cloudRain") {
+      sounds.cloudRain.play();
+    } else if (btnSound == "storeFront") {
+      sounds.storeFront.play();
+    } else if (btnSound == "flame") {
+      sounds.flame.play();
+    }
+  } else {
     sounds.tree.pause();
     sounds.flame.pause();
     sounds.cloudRain.pause();
     sounds.storeFront.pause();
-    return;
   }
 
-  if (btnSound == "tree") {
-    sounds.tree.play();
-  } else if (btnSound == "cloudRain") {
-    sounds.cloudRain.play();
-  } else if (btnSound == "storeFront") {
-    sounds.storeFront.play();
-  } else if (btnSound == "flame") {
-    sounds.flame.play();
-  }
+  console.log(state.isMute);
+  console.log(btnSound);
 };

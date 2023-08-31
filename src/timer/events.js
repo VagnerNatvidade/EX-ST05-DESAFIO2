@@ -19,7 +19,7 @@ export const registerSounds = () => {
 
     if (typeof actions[sound] != "function") {
       return;
-    }
+    } 
 
     actions[sound]();
   });
