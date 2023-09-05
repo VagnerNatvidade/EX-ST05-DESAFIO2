@@ -34,26 +34,38 @@ export const minusFiveMinutes = () => {
 };
 
 export const toggleMusic = () => {
-  state.isMute = !state.isMute;
   let btnSound = event.target.id;
+  state[btnSound].isMute = !state[btnSound].isMute;
 
-  if (state.isMute == false) {
-    if (btnSound == "tree") {
-      sounds.tree.play();
-    } else if (btnSound == "cloudRain") {
-      sounds.cloudRain.play();
-    } else if (btnSound == "storeFront") {
-      sounds.storeFront.play();
-    } else if (btnSound == "flame") {
-      sounds.flame.play();
+  Array.from(document.querySelectorAll(".sound")).map((x) => {
+    let btn = x.id;
+    console.log(x.id);
+
+    state[btn].isMute;
+    console.log(state[btn].isMute);
+
+    if (state[btnSound].isMute == false) {
+      if (btnSound == "tree") {
+        sounds.tree.play();
+      } else if (btnSound == "cloudRain") {
+        sounds.cloudRain.play();
+      } else if (btnSound == "storeFront") {
+        sounds.storeFront.play();
+      } else if (btnSound == "flame") {
+        sounds.flame.play();
+      }
+    } else if (state[btnSound].isMute == true) {
+      if (btnSound == "tree") {
+        sounds.tree.pause();
+      } else if (btnSound == "cloudRain") {
+        sounds.cloudRain.pause();
+      } else if (btnSound == "storeFront") {
+        sounds.storeFront.pause();
+      } else if (btnSound == "flame") {
+        sounds.flame.pause();
+      }
     }
-  } else {
-    sounds.tree.pause();
-    sounds.flame.pause();
-    sounds.cloudRain.pause();
-    sounds.storeFront.pause();
-  }
+  });
 
-  console.log(state.isMute);
-  console.log(btnSound);
+  document.getElementById(btnSound).classList.toggle("sound-on");
 };
