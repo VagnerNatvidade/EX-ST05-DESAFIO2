@@ -14,4 +14,5 @@ export default {
   flame: {
     isMute: true,
   },
+  countdownId: null,
 };

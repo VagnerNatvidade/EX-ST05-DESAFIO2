@@ -3,13 +3,14 @@ import * as timer from "./timer.js";
 import * as sounds from "./sounds.js";
 
 export const toggleRunning = () => {
-  state.isRunning = !state.isRunning;
+  state.isRunning = document.documentElement.classList.toggle("running");
 
   timer.countDown();
 };
 
 export const reset = () => {
   state.isRunning = false;
+  document.documentElement.classList.remove("running");
 
   timer.updateDisplay();
 };

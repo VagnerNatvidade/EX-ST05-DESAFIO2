@@ -7,7 +7,6 @@ export const start = (minutes, seconds) => {
   state.seconds = seconds;
 
   timer.updateDisplay();
-
   events.registerControls();
   events.registerSounds();
 };
